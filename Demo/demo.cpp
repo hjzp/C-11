@@ -7,6 +7,8 @@
 #include <string>
 #include <tuple>
 
+#include "SmartPointer.hpp"
+
 using namespace std;
 
 int main()
@@ -45,11 +47,21 @@ int main()
 	cout << std::get<0>(tt) << endl;
 
 	///////////////////////////////////////////////////////////////
-	// TODO LIST:
-	// TODO_1: 右值引用 (Rvalue Referene)
+	// TODO:
+	// TODO_1: 右值、右值引用的理解 (Rvalue Referene)，x&&
 
-	// TODO_2: 共享指针
-
+	// 智能指针：独占式
+	UniquePtr<int> u1(new int(10));
+	cout << "*u1 = " << *u1 << endl;
+	UniquePtr<int> u2 = u1;
+	cout << "*u2 = " << *u2 << endl;
+	UniquePtr<int> u3(u2);
+	// 智能指针：共享式
+	SharedPtr<int> s1(new int(20));
+	cout << "*s1 = " << *s1 << endl;
+	SharedPtr<int> s2 = s1;
+	cout << "*s2 = " << *s2 << endl;
+	SharedPtr<int> s3(s2);
 	// TODO_3: 多线程与互斥同步
 
 	///////////////////////////////////////////////////////////////
