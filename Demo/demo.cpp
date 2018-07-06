@@ -62,7 +62,18 @@ int main()
 	SharedPtr<int> s2 = s1;
 	cout << "*s2 = " << *s2 << endl;
 	SharedPtr<int> s3(s2);
+	
 	// TODO_3: 多线程与互斥同步
+	cout << "-----------------Thread--------------->>" << endl;
+	run_thread_update_data();
+	run_thread_callable_with_arguments(1.2);	// 内部没有等待线程结束，打印结果顺序随机
+	cout << "-----------------Thread---------------<<" << endl;
+	
+	cout << "-----------------Thread call class function--------------->>" << endl;
+	Class1 cls1;
+	std::thread thread1(&Class1::task, cls1, 11);
+	thread1.join();
+	cout << "-----------------Thread call class function---------------<<" << endl;
 
 	///////////////////////////////////////////////////////////////
 
