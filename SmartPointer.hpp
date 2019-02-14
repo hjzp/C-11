@@ -1,3 +1,4 @@
+```C++
 #pragma once
 
 template <class T>
@@ -139,3 +140,4 @@ private:
 	T* pointer;
 	int* use_count;
 };
+```
