@@ -1,4 +1,4 @@
-```
+```cpp
 #pragma once
 
 template <class T>
